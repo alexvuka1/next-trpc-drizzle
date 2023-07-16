@@ -18,6 +18,20 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.typia\.(ts)x?$/,
+      loader: 'ts-loader',
+      options: {
+        transpileOnly: false,
+        compilerOptions: {
+          noEmit: false,
+        },
+      },
+    });
+
+    return config;
+  },
 };
 
 export default config;

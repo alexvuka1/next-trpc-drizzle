@@ -6,7 +6,11 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "studio": "dotenv drizzle-kit studio",
+    "db-push": "dotenv drizzle-kit generate:pg; pnpm db-migrate",
+    "db-migrate": "dotenv ts-node-esm src/server/db/migrate.ts",
+    "prepare": "ts-patch install"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.3.1",
@@ -15,22 +19,33 @@
     "@trpc/next": "^10.26.0",
     "@trpc/react-query": "^10.26.0",
     "@trpc/server": "^10.26.0",
+    "drizzle-orm": "^0.27.2",
+    "lodash-es": "^4.17.21",
     "next": "^13.4.2",
+    "postgres": "^3.3.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "superjson": "1.12.2",
+    "type-fest": "^4.0.0",
+    "typia": "^4.1.7",
     "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/eslint": "^8.37.0",
+    "@types/lodash-es": "^4.17.8",
     "@types/node": "^18.16.0",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
+    "dotenv-cli": "^7.2.1",
+    "drizzle-kit": "^0.19.5",
     "eslint": "^8.40.0",
     "eslint-config-next": "^13.4.2",
-    "typescript": "^5.0.4"
+    "ts-loader": "^9.4.4",
+    "ts-node": "^10.9.1",
+    "ts-patch": "^3.0.1",
+    "typescript": "^5.1.6"
   },
   "ct3aMetadata": {
     "initVersion": "7.15.0"
